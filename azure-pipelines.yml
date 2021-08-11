@@ -21,4 +21,3 @@ jobs:
           steps:
             - script: echo Hello, world!
               displayName: 'Run a one-line script 1'
-              s
