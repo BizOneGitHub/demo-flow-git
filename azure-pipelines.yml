@@ -6,9 +6,18 @@
 trigger:
   - develop
 
-pool:
-  vmImage: ubuntu-latest
+variables:
+  - name: vmImage
+    value: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+  - deployment: ValidateJob
+    pool:
+      vmImage: $(vmImage)
+    environment: DEV
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - script: echo Hello, world!
+              displayName: 'Run a one-line script 1'
