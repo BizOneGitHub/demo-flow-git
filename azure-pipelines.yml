@@ -30,5 +30,5 @@ jobs:
       runOnce:
         deploy:
           steps:
-            - script: echo {system.pullRequest.sourceBranch} {pullRequest.sourceBranch} {sourceBranch}!
+            - script: echo ${system.pullRequest.sourceBranch} ${pullRequest.sourceBranch} {sourceBranch} $(system.pullRequest.sourceBranch) $(pullRequest.sourceBranch) $(sourceBranch)!
               displayName: 'Run a one-line script 1'
