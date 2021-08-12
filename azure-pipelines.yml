@@ -30,7 +30,5 @@ jobs:
       runOnce:
         deploy:
           steps:
-            - script: $(system.pullRequest.sourceBranch) !
+            - script: echo $(system.pullRequest.sourceBranch) / $(system.pullRequest.targetBranch)
               displayName: 'Run a system.pullRequest.sourceBranch'
-            - script: $(system.pullRequest.targetBranch) !
-              displayName: 'Run a system.pullRequest.targetBranch'
