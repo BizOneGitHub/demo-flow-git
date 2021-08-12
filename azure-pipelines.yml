@@ -30,5 +30,19 @@ jobs:
       runOnce:
         deploy:
           steps:
-            - script: ${sourceBranch}/ ${targetBranch}!
-              displayName: 'Run a one-line script 1'
+            - script: ${sourceBranch}!
+              displayName: 'Run a ${sourceBranch} '
+            - script: ${targetBranch}!
+              displayName: 'Run a ${targetBranch}'
+            - script: $(sourceBranch) !
+              displayName: 'Run a $(sourceBranch)'
+            - script: $(targetBranch) !
+              displayName: 'Run a $(targetBranch)'
+            - script: $(pullRequest.targetBranch) !
+              displayName: 'Run a $(pullRequest.targetBranch)'
+            - script: ${pullRequest.targetBranch} !
+              displayName: 'Run a ${pullRequest.targetBranch}'
+            - script: ${system.pullRequest.targetBranch} !
+              displayName: 'Run a ${system.pullRequest.targetBranch}'
+            - script: $(system.pullRequest.targetBranch) !
+              displayName: 'Run a $(system.pullRequest.targetBranch)'
