@@ -3,8 +3,17 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-  - develop
+
+#resources:
+#  repositories:
+#    - repository: common
+#      type: github
+#      name: Contoso/CommonTools
+#      endpoint: MyContosoServiceConnection
+#      trigger:
+#        branches:
+#          include:
+#            - develop
 
 variables:
   - name: vmImage
@@ -14,10 +23,10 @@ jobs:
   - deployment: ValidateJob
     pool:
       vmImage: $(vmImage)
-    environment: DEV
+    environment: DEV1
     strategy:
       runOnce:
         deploy:
           steps:
-            - script: echo Hello, world!
-              displayName: 'Run a one-line script 1'
+            - script: echo $(system.pullRequest.sourceBranch) / $(system.pullRequest.targetBranch)
+              displayName: 'Run a system.pullRequest.sourceBranch'
