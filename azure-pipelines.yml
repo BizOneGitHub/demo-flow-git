@@ -30,10 +30,6 @@ jobs:
       runOnce:
         deploy:
           steps:
-            - script: ${sourceBranch}!
-              displayName: 'Run a ${sourceBranch} '
-            - script: ${targetBranch}!
-              displayName: 'Run a ${targetBranch}'
             - script: $(sourceBranch) !
               displayName: 'Run a $(sourceBranch)'
             - script: $(targetBranch) !
