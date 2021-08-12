@@ -30,5 +30,5 @@ jobs:
       runOnce:
         deploy:
           steps:
-            - script: $(sourceBranch)!
+            - script: $(sourceBranch)/ $(targetBranch)!
               displayName: 'Run a one-line script 1'
