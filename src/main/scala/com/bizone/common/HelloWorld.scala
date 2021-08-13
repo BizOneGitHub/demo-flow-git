@@ -1,6 +1,6 @@
 package com.bizone.common
 
-object HelloWorld {
+object HelloWorldTest {
   def displayHelloWorld(input : String) = {
     println("Hello World from Di Truong" + input)
   }
