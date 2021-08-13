@@ -12,5 +12,5 @@ variables:
     value: 'ubuntu-latest'
 
 steps:
-  - script: echo $(system.pullRequest.sourceBranch) / $(system.pullRequest.targetBranch)
+  - script: echo run build
     displayName: 'Run a system.pullRequest.sourceBranch'
