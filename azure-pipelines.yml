@@ -3,18 +3,6 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-
-#resources:
-#  repositories:
-#    - repository: common
-#      type: github
-#      name: Contoso/CommonTools
-#      endpoint: MyContosoServiceConnection
-#      trigger:
-#        branches:
-#          include:
-#            - develop
-
 variables:
   - name: vmImage
     value: 'ubuntu-latest'
