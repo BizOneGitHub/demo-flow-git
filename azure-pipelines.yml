@@ -6,10 +6,25 @@ jobs:
   - deployment: ValidateJob
     pool:
       vmImage: $(vmImage)
+    variables:
+      - name: targetBranch
+        value: echo $(system.pullRequest.targetBranch)
+      - name: sourceBranch
+        value: echo $(system.pullRequest.sourceBranch)
     environment: DEV1
     strategy:
       runOnce:
         deploy:
           steps:
-            - script: echo run from $(system.pullRequest.sourceBranch) into $(system.pullRequest.targetBranch)
-              displayName: 'Run a system.pullRequest.sourceBranch'
+            - checkout: self
+              persistCredentials: true
+            - task: Bash@3
+              displayName: 'set main branch'
+              inputs:
+                targetType: 'inline'
+                script: |
+                    git config --global user.email "duc.nguyen@bizone.com.vn"
+                    git config --global user.name "ducnguyen452021"
+                    git merge origin/develop
+            - script: sbt clean coverage test coverageReport coverageOff
+              displayName: 'Running $ scan line of code function coverageReport'

@@ -1,0 +1,12 @@
+steps:
+  - checkout: self
+    persistCredentials: true
+  - task: Bash@3
+    displayName: 'set main branch'
+    inputs:
+      targetType: 'inline'
+      script: |
+        git checkout -b develop origin/$(targetBranch)
+        git merge origin/$(sourceBranch)
+  - script: sbt clean coverage test coverageReport coverageOff
+    displayName: 'Running $ scan line of code function coverageReport'
