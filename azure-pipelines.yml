@@ -10,7 +10,5 @@ jobs:
     strategy:
       runOnce:
         deploy:
-          - template: jobs/build.yml
-#          steps:
-#            - script: git merge origin/feature/* echo run from $(system.pullRequest.sourceBranch) into $(system.pullRequest.targetBranch)
-#              displayName: 'Run a system.pullRequest.sourceBranch'
+          steps:
+            - template: jobs/build.yml
