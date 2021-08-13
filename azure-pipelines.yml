@@ -8,9 +8,9 @@ jobs:
       vmImage: $(vmImage)
     variables:
       - name: targetBranch
-        value: $(system.pullRequest.targetBranch)
+        value: s'$(system.pullRequest.targetBranch)'
       - name: sourceBranch
-        value: $(system.pullRequest.sourceBranch)
+        value: s'$(system.pullRequest.sourceBranch)'
     environment: DEV1
     strategy:
       runOnce:
