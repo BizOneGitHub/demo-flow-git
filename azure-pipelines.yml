@@ -23,4 +23,6 @@ jobs:
               inputs:
                 targetType: 'inline'
                 script: |
-                  echo $(system.pullRequest.targetBranch)
+                        git merge origin/develop
+            - script: sbt clean coverage test coverageReport coverageOff
+              displayName: 'Running $ scan line of code function coverageReport'
