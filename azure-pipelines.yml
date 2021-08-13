@@ -23,7 +23,4 @@ jobs:
               inputs:
                 targetType: 'inline'
                 script: |
-                        git checkout -b develop origin/$(system.pullRequest.targetBranch)
-                        git merge origin/$(system.pullRequest.sourceBranch)
-            - script: sbt clean coverage test coverageReport coverageOff
-              displayName: 'Running $ scan line of code function coverageReport'
+                echo $(system.pullRequest.targetBranch)
