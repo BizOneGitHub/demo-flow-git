@@ -23,6 +23,8 @@ jobs:
               inputs:
                 targetType: 'inline'
                 script: |
-                        git merge origin/develop
+                    git config --global user.email "$(user.email)"
+                    git config --global user.name "$(user.name)"
+                    git merge origin/develop
             - script: sbt clean coverage test coverageReport coverageOff
               displayName: 'Running $ scan line of code function coverageReport'
