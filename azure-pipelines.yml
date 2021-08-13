@@ -6,6 +6,11 @@ jobs:
   - deployment: ValidateJob
     pool:
       vmImage: $(vmImage)
+    variables:
+      - name: targetBranch
+      - value: $(system.pullRequest.targetBranch)
+      - name: sourceBranch
+      - value: $(system.pullRequest.sourceBranch)
     environment: DEV
     strategy:
       runOnce:
