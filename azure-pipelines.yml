@@ -12,5 +12,5 @@ variables:
     value: 'ubuntu-latest'
 
 steps:
-  - script: echo run build
-    displayName: 'Run a system.pullRequest.sourceBranch'
+  - script: sbt clean coverage test coverageReport coverageOff
+    displayName: 'Running $ scan line of code function coverageReport'
