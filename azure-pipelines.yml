@@ -11,7 +11,7 @@ jobs:
         value: $(system.pullRequest.targetBranch)
       - name: sourceBranch
         value: $(system.pullRequest.sourceBranch)
-    environment: DEV
+    environment: DEV1
     strategy:
       runOnce:
         deploy:
