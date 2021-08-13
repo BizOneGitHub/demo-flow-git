@@ -6,10 +6,11 @@ jobs:
   - deployment: ValidateJob
     pool:
       vmImage: $(vmImage)
-    environment: DEV1
+    environment: DEV
     strategy:
       runOnce:
         deploy:
-          steps:
-            - script: echo run from $(system.pullRequest.sourceBranch) into $(system.pullRequest.targetBranch)
-              displayName: 'Run a system.pullRequest.sourceBranch'
+          - template: jobs/build.yml
+#          steps:
+#            - script: git merge origin/feature/* echo run from $(system.pullRequest.sourceBranch) into $(system.pullRequest.targetBranch)
+#              displayName: 'Run a system.pullRequest.sourceBranch'
