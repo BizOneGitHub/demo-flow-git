@@ -1,0 +1,15 @@
+variables:
+  - name: vmImage
+    value: 'ubuntu-latest'
+
+jobs:
+  - deployment: ValidateJob
+    pool:
+      vmImage: $(vmImage)
+    environment: DEV1
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - script: echo run from $(system.pullRequest.sourceBranch) into $(system.pullRequest.targetBranch)
+              displayName: 'Run a system.pullRequest.sourceBranch'
