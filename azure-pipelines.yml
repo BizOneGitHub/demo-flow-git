@@ -16,4 +16,5 @@ jobs:
       runOnce:
         deploy:
           steps:
-            - template: jobs/build.yml
+            - script: echo run from $(system.pullRequest.sourceBranch) into $(system.pullRequest.targetBranch)
+              displayName: s'Run a $(system.pullRequest.sourceBranch)'
